@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # TeleBox 安装脚本
-# 版本: 1.0.0
 # 项目: https://github.com/TeleBoxOrg/TeleBox
-# Coding by Telegram @Tiara_Basori
+# Coding by Telegram @awaEmpty
 
 # 颜色定义
 RED='\033[0;31m'
