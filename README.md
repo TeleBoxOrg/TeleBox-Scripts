@@ -127,7 +127,13 @@ Docker 安装脚本，适合想用容器部署的用户。
 # 安装 PM2
 npm install -g pm2
 
-# 使用官方 PM2 配置启动 TeleBox
+# 使用 PM2 启动服务
+pm2 start "npm start" --name telebox
+
+# 保存 PM2 配置
+pm2 save
+
+# 以上两步也可以使用以下命令一键完成，但是有可能会发生兼容性问题
 cd ~/telebox && pm2 start ecosystem.config.cjs && pm2 save
 
 # 查看状态
