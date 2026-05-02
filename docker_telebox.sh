@@ -216,7 +216,8 @@ start_docker_interactive() {
     echo "=========================================="
     echo
     echo "正在启动容器进行配置 . . ."
-    echo "请注意：接下来需要您登录 Telegram 账号"
+    echo "请注意：接下来需要您根据官方流程登录 Telegram 账号"
+    echo "首次启动时需要填写 api_id / api_hash，并选择二维码或手机号登录"
     echo
     sleep 3
     
@@ -225,21 +226,18 @@ start_docker_interactive() {
         -v "/root/Docker_Telebox/$container_name":/root --pull always debian:12 \
         bash -lc "set -e; \
         apt-get update; \
-        apt-get install -y curl ca-certificates gnupg sudo; \
+        apt-get install -y curl git build-essential ca-certificates gnupg sudo; \
         update-ca-certificates; \
-        curl -fsSL https://deb.nodesource.com/setup_20.x | bash -; \
+        curl -fsSL https://deb.nodesource.com/setup_24.x | bash -; \
         apt-get install -y nodejs; \
-        npm i -g pm2; \
-        curl -fsSL https://github.com/EAlyce/conf/raw/refs/heads/main/Linux/installTeleBox.sh -o /root/installTeleBox.sh; \
-        chmod +x /root/installTeleBox.sh; \
-        /root/installTeleBox.sh; \
+        npm install -g pm2; \
+        if [ ! -d /root/telebox/.git ]; then git clone https://github.com/TeleBoxOrg/TeleBox.git /root/telebox; fi; \
+        cd /root/telebox; \
+        npm install; \
         echo ''; \
-        echo '安装完成，正在保存 PM2 配置...'; \
-        pm2 ls; \
-        pm2 save; \
-        echo ''; \
-        echo '按 Ctrl+C 继续下一步...'; \
-        exec pm2-runtime /root/telebox/ecosystem.config.js"
+        echo '首次启动将进入官方 TeleBox 登录流程'; \
+        echo '请按提示填写 api_id / api_hash，并选择二维码或手机号登录'; \
+        npm start"
     
     echo
     echo "配置完成，正在进入后台运行模式 . . ."
@@ -262,15 +260,15 @@ start_docker_daemon() {
         -v "/root/Docker_Telebox/$container_name":/root --pull always debian:12 \
         bash -lc "set -e; \
         apt-get update; \
-        apt-get install -y curl ca-certificates gnupg sudo; \
+        apt-get install -y curl git build-essential ca-certificates gnupg sudo; \
         update-ca-certificates; \
-        curl -fsSL https://deb.nodesource.com/setup_20.x | bash -; \
+        curl -fsSL https://deb.nodesource.com/setup_24.x | bash -; \
         apt-get install -y nodejs; \
-        npm i -g pm2; \
-        [ -f /root/telebox/ecosystem.config.js ] || (curl -fsSL https://github.com/EAlyce/conf/raw/refs/heads/main/Linux/installTeleBox.sh -o /root/installTeleBox.sh; \
-        chmod +x /root/installTeleBox.sh; \
-        /root/installTeleBox.sh); \
-        exec pm2-runtime /root/telebox/ecosystem.config.js"
+        npm install -g pm2; \
+        if [ ! -d /root/telebox/.git ]; then git clone https://github.com/TeleBoxOrg/TeleBox.git /root/telebox; fi; \
+        cd /root/telebox; \
+        npm install; \
+        exec pm2-runtime start npm --name telebox -- start"
     
     echo
     echo "=========================================="
