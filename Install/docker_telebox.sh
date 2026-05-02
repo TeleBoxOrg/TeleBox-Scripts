@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 # TeleBox Docker 一键安装脚本
-# Version: 2.0.0
 
 if [[ $EUID -ne 0 ]]; then
     echo "错误：本脚本需要 root 权限执行。" 1>&2
