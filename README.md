@@ -84,7 +84,7 @@ Docker 安装脚本，适合想用容器部署的用户。
 它会分两阶段完成：
 
 1. 启动交互式容器，完成首次登录
-2. 登录完成后询问你是否立即启用 PM2 后台运行
+2. 登录完成后会提示你是否立即启用 **推荐的 PM2 后台运行**
 
 ## 🧭 安装后会发生什么？
 
@@ -117,7 +117,7 @@ Docker 安装脚本，适合想用容器部署的用户。
 
 ### PM2 后台运行
 
-安装脚本完成后会询问你是否立即设置 PM2 后台运行。
+安装脚本完成后会提示你是否立即启用 **推荐的 PM2 后台运行**。
 
 如果不设置 PM2，你的 TeleBox 实例将不会持久化运行。
 
@@ -127,14 +127,8 @@ Docker 安装脚本，适合想用容器部署的用户。
 # 安装 PM2
 npm install -g pm2
 
-# 使用 PM2 启动服务
-pm2 start "npm start" --name telebox
-
-# 保存 PM2 配置
-pm2 save
-
-# 以上两步也可以使用以下命令一键完成，但是有可能会发生兼容性问题
-cd ~/telebox && pm2 start ecosystem.config.cjs && pm2 save
+# 启动 TeleBox（兼容性更好）
+cd ~/telebox && pm2 start "npm start" --name telebox && pm2 save
 
 # 查看状态
 pm2 status
@@ -185,7 +179,12 @@ docker stop telebox
 - 选择二维码登录或手机号登录
 - 按要求完成验证
 
-### 3. Docker 版本和本机版本有什么区别？
+### 3. root 可以直接运行吗？
+
+- `telebox.sh` 会推荐你启用 PM2 后台运行，但你也可以选择跳过
+- `docker_telebox.sh` 仍然需要 **root 权限** 执行
+
+### 4. Docker 版本和本机版本有什么区别？
 
 - **本机版本**：直接安装到当前 Linux 系统，适合大多数普通用户
 - **Docker 版本**：运行在容器内，适合已经熟悉 Docker 或想隔离环境的用户
