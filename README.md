@@ -6,13 +6,13 @@
 
 本仓库脚本用于简化 TeleBox 部署，当前说明以官方安装指南为准，覆盖以下流程：
 
-- ✅ 安装当前支持的 Node.js 24.x
+- ✅ 安装 Node.js 24.x
 - ✅ 安装基础依赖：`curl`、`git`、`build-essential`
 - ✅ 拉取官方仓库 `TeleBoxOrg/TeleBox`
 - ✅ 安装项目依赖并执行首次启动
 - ✅ 首次填写 `api_id` / `api_hash`
 - ✅ 根据提示选择二维码登录或手机号登录
-- ✅ 可选使用 PM2 进行后台守护
+- ✅ 使用 PM2 进行后台守护
 
 ## 系统要求
 
@@ -26,19 +26,19 @@
 
 ### 安装到本地
 ```bash
-wget https://raw.githubusercontent.com/TeleBoxOrg/InstallTeleBox/refs/heads/main/telebox.sh -O telebox.sh && chmod +x telebox.sh && bash telebox.sh
+wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox_Scripts/refs/heads/main/Install/telebox.sh -O telebox.sh && chmod +x telebox.sh && bash telebox.sh
 ```
 
 ### 安装到 Docker 容器内
 Docker 版本脚本作者: github.com/Seikolove
 ```bash
-wget https://raw.githubusercontent.com/TeleBoxOrg/InstallTeleBox/refs/heads/main/docker_telebox.sh -O docker_telebox.sh && chmod +x docker_telebox.sh && bash docker_telebox.sh
+wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox_Scripts/refs/heads/main/Install/docker_telebox.sh -O docker_telebox.sh && chmod +x docker_telebox.sh && bash docker_telebox.sh
 ```
 
 ## 当前安装流程说明
 
 1. 安装脚本会先准备基础依赖：`curl`、`git`、`build-essential`
-2. 按官方要求安装 Node.js 24.x
+2. 安装 Node.js 24.x
 3. 从官方仓库 `https://github.com/TeleBoxOrg/TeleBox.git` 拉取项目
 4. 执行 `npm install` 安装依赖
 5. 首次运行 `npm start` 时，按提示填写 `api_id` 和 `api_hash`
@@ -92,4 +92,4 @@ pm2 stop telebox
 ---
 
 **项目地址**: [TeleBoxOrg/TeleBox](https://github.com/TeleBoxOrg/TeleBox)  
-**脚本仓库**: [TeleBoxOrg/InstallTeleBox](https://github.com/TeleBoxOrg/InstallTeleBox)
+**脚本仓库**: [TeleBoxOrg/InstallTeleBox](https://github.com/TeleBoxOrg/TeleBox_Scripts)
