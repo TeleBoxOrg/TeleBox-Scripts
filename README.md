@@ -49,7 +49,7 @@ Telegram API 申请地址：<https://my.telegram.org/auth?to=apps>
 - 想自己查看目录、手动管理文件
 
 ```bash
-wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox_Scripts/refs/heads/main/Install/telebox.sh -O telebox.sh && chmod +x telebox.sh && bash telebox.sh
+wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox-Scripts/refs/heads/main/Install/telebox.sh -O telebox.sh && chmod +x telebox.sh && bash telebox.sh
 ```
 
 ### 方式二：安装到 Docker 容器
@@ -60,7 +60,7 @@ wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox_Scripts/refs/heads/mai
 - 想用容器方式部署和迁移
 
 ```bash
-wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox_Scripts/refs/heads/main/Install/docker_telebox.sh -O docker_telebox.sh && chmod +x docker_telebox.sh && bash docker_telebox.sh
+wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox-Scripts/refs/heads/main/Install/docker_telebox.sh -O docker_telebox.sh && chmod +x docker_telebox.sh && bash docker_telebox.sh
 ```
 
 ## 📦 脚本说明
