@@ -124,7 +124,7 @@ wget https://raw.githubusercontent.com/TeleBoxOrg/TeleBox-Scripts/refs/heads/mai
 
 <div align="center">
 
-[![TeleBox](https://img.shields.io/badge/📦_TeleBox-Classic-blue?style=for-the-badge&logo=github)](https://github.com/TeleBoxOrg/TeleBox)
+[![TeleBox](https://img.shields.io/badge/📦_TeleBox-blue?style=for-the-badge&logo=github)](https://github.com/TeleBoxOrg/TeleBox)
 [![TeleBox-Next](https://img.shields.io/badge/📦_TeleBox--Next-blue?style=for-the-badge&logo=github)](https://github.com/TeleBoxOrg/TeleBox-Next)
 [![Issues](https://img.shields.io/badge/🆘_问题反馈-Issues-red?style=for-the-badge&logo=github)](https://github.com/TeleBoxOrg/TeleBox/issues)
 
